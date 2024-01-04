@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Nunito+Sans:opsz,wght@6..12,300&display=swap" rel="stylesheet">   
+    <style>
+        
+        .header{
+            margin-left: 1.5rem;
+            text-align: left;
+            font-size: 40px;
+            ;
+            font-family: 'Cinzel', serif;
+        }
+        .user{
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 25px;
+           text-align: right;
+           margin-right: 3rem;
+            color: grey;
+        }
+        .section{
+            text-align: left;
+            font-family: 'Nunito Sans', sans-serif;
+            margin: auto;
+            width: 35%;
+            
+            font-size: 25px;
+            margin-top: 2rem;
+        }
+        .net{
+            font-size: 37px;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .main{
+            display: inline-flex;
+            
+            margin-top: 2rem;
+        }
+        .inc{
+            display: inline-flex;
+            margin-right: 5rem;
+        }
+        .exp{
+            display: inline-flex;
+        }
+        .num1{
+            color: green;
+            margin-left: 1.2rem;
+        }
+        .num2{
+            color: red;
+            margin-left: 1.2rem;
+        }
+        .add{
+            margin-top: 2rem;
+        }
+        form{
+            margin-top: 1.5rem;
+        }
+        input{
+            margin-top: 1.2rem;
+        }
+        .para{
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+    
+       button{
+        text-align: center;
+        margin-top: 1.5rem;
+       }
+  
+    </style>
+</head>
+<body>
+    <div class="user">
+    {{request.user}}
+</div>
+    <div class="header">FTRACK</div>
+    
+    <div class="section">
+        
+    <div class="net">Net: {{profile.balance}}</div>
+   <div class="main">
+    <div class="inc">
+        Income: <div class="num1">{{profile.income}}</div>
+    </div>
+    <div class="exp">
+        Expenditure: <div class="num2">{{profile.expenditure}}</div>
+    </div>
+   </div>
+   <div class="add">Add A Finance</div>
+    <form action="{% url 'homepage' %}" method="post">
+        {% csrf_token %}
+        <label for="descp">Description: </label>
+        <input type="text" name="descp" id="descp"><br>
+        <label for="amount"> Amount: </label>
+        <input type="number" id="amount" name="amount">
+          
+        <div class="para">Was it a gain?</div>
+        <label for="True"> True </label>
+        <input type="radio" name="Bool" id="True" value="True">
+        <label for="False">False</label>
+        <input type="radio" name="Bool" id="False" value="False"><br>
+        <button type="button" class="btn btn-outline-secondary">ADD</button>
+
+</form>
+
+   </div>
+</body>
+</html>
